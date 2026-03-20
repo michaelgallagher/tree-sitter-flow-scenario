@@ -1,0 +1,11 @@
+{
+  "grammars": [
+    {
+      "name": "flow_scenario",
+      "camelCase": false,
+      "scope": "source.flow",
+      "path": ".",
+      "file-types": ["flow"]
+    }
+  ]
+}
