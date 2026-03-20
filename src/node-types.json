@@ -1,0 +1,137 @@
+[
+  {
+    "type": "header_directive",
+    "named": true,
+    "fields": {
+      "keyword": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "directive_keyword",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "rest_of_line",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "divider",
+          "named": true
+        },
+        {
+          "type": "header_directive",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "step",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step",
+    "named": true,
+    "fields": {
+      "args": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "step_args",
+            "named": true
+          }
+        ]
+      },
+      "keyword": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "step_keyword",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "step_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "unquoted_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "directive_keyword",
+    "named": true
+  },
+  {
+    "type": "divider",
+    "named": true
+  },
+  {
+    "type": "quoted_string",
+    "named": true
+  },
+  {
+    "type": "rest_of_line",
+    "named": true
+  },
+  {
+    "type": "step_keyword",
+    "named": true
+  },
+  {
+    "type": "unquoted_arg",
+    "named": true
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-flow-scenario",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for .flow scenario files",
+  "main": "bindings/node",
+  "tree-sitter": [
+    {
+      "scope": "source.flow",
+      "file-types": ["flow"],
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "dependencies": {
+    "nan": "^2.18.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.26.0"
+  }
+}

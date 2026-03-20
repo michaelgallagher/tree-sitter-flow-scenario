@@ -1,0 +1,318 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "flow_scenario",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_line"
+          },
+          {
+            "type": "STRING",
+            "value": "\n"
+          }
+        ]
+      }
+    },
+    "_line": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "divider"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "header_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "step"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quoted_string"
+        }
+      ]
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*"
+          }
+        ]
+      }
+    },
+    "divider": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "---+\\s*[A-Za-z]+\\s*---+"
+      }
+    },
+    "header_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "SYMBOL",
+            "name": "directive_keyword"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[ \\t]+"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "value",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "rest_of_line"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "directive_keyword": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[Ss][Tt][Aa][Rr][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ss][Cc][Oo][Pp][Ee]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ee][Xx][Cc][Ll][Uu][Dd][Ee]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Tt][Aa][Gg][Ss]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ll][Ii][Mm][Ii][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Dd][Ii][Ss][Aa][Bb][Ll][Ee][Dd]"
+          }
+        ]
+      }
+    },
+    "step": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "SYMBOL",
+            "name": "step_keyword"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[ \\t]+"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "args",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "step_args"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "step_keyword": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[Vv][Ii][Ss][Ii][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Gg][Oo][Tt][Oo]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Cc][Ll][Ii][Cc][Kk]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ff][Ii][Ll][Ll]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ss][Ee][Ll][Ee][Cc][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Cc][Hh][Ee][Cc][Kk]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ss][Uu][Bb][Mm][Ii][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ww][Aa][Ii][Tt][Ff][Oo][Rr][Uu][Rr][Ll]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ww][Aa][Ii][Tt][Ff][Oo][Rr][Ss][Ee][Ll][Ee][Cc][Tt][Oo][Rr]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ww][Aa][Ii][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ss][Nn][Aa][Pp][Ss][Hh][Oo][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Uu][Ss][Ee]"
+          }
+        ]
+      }
+    },
+    "step_args": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "quoted_string"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "unquoted_arg"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[ \\t]+"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "quoted_string"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "unquoted_arg"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "quoted_string": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\""
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\"]*"
+          },
+          {
+            "type": "STRING",
+            "value": "\""
+          }
+        ]
+      }
+    },
+    "unquoted_arg": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\s\"]+"
+      }
+    },
+    "rest_of_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\n]+"
+      }
+    }
+  },
+  "extras": [],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}
