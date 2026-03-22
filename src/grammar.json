@@ -189,7 +189,19 @@
           },
           {
             "type": "PATTERN",
+            "value": "[Cc][Ll][Ii][Cc][Kk][Ll][Ii][Nn][Kk]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Cc][Ll][Ii][Cc][Kk][Bb][Uu][Tt][Tt][Oo][Nn]"
+          },
+          {
+            "type": "PATTERN",
             "value": "[Cc][Ll][Ii][Cc][Kk]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Ff][Ii][Ll][Ll][Ii][Nn]"
           },
           {
             "type": "PATTERN",
@@ -198,6 +210,10 @@
           {
             "type": "PATTERN",
             "value": "[Ss][Ee][Ll][Ee][Cc][Tt]"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[Cc][Hh][Oo][Oo][Ss][Ee]"
           },
           {
             "type": "PATTERN",

@@ -44,9 +44,13 @@ module.exports = grammar({
         choice(
           /[Vv][Ii][Ss][Ii][Tt]/,
           /[Gg][Oo][Tt][Oo]/,
+          /[Cc][Ll][Ii][Cc][Kk][Ll][Ii][Nn][Kk]/,
+          /[Cc][Ll][Ii][Cc][Kk][Bb][Uu][Tt][Tt][Oo][Nn]/,
           /[Cc][Ll][Ii][Cc][Kk]/,
+          /[Ff][Ii][Ll][Ll][Ii][Nn]/,
           /[Ff][Ii][Ll][Ll]/,
           /[Ss][Ee][Ll][Ee][Cc][Tt]/,
+          /[Cc][Hh][Oo][Oo][Ss][Ee]/,
           /[Cc][Hh][Ee][Cc][Kk]/,
           /[Ss][Uu][Bb][Mm][Ii][Tt]/,
           /[Ww][Aa][Ii][Tt][Ff][Oo][Rr][Uu][Rr][Ll]/,

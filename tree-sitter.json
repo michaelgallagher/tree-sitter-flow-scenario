@@ -1,4 +1,11 @@
 {
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for .flow scenario files",
+    "authors": [],
+    "links": {}
+  },
   "grammars": [
     {
       "name": "flow_scenario",
